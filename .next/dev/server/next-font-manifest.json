@@ -1,0 +1,17 @@
+{
+  "app": {
+    "[project]/Downloads/RESQ1/frontend/app/page": [
+      "static/media/fabcf92ba1ccea36-s.p.19f28380.woff2",
+      "static/media/4f530f52d514af96-s.p.52297690.woff2",
+      "static/media/303804218d80822e-s.p.9b40bd6c.woff2",
+      "static/media/d9b5d46d9a89ffe6-s.p.0855aa53.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2",
+      "static/media/23b7a97ae3b5c134-s.p.2902b61f.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
