@@ -1,0 +1,243 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* RESQ Emergency Color System */
+  --resq-red: #D72638;
+  --resq-dark: #0A0A0F;
+  --resq-amber: #F5A623;
+  --resq-white: #F0F4F8;
+  --resq-green: #22C55E;
+  --resq-blue: #3B82F6;
+  
+  --background: #0A0A0F;
+  --foreground: #F0F4F8;
+  --card: #12121A;
+  --card-foreground: #F0F4F8;
+  --popover: #12121A;
+  --popover-foreground: #F0F4F8;
+  --primary: #D72638;
+  --primary-foreground: #F0F4F8;
+  --secondary: #1A1A24;
+  --secondary-foreground: #F0F4F8;
+  --muted: #1A1A24;
+  --muted-foreground: #6B7280;
+  --accent: #F5A623;
+  --accent-foreground: #0A0A0F;
+  --destructive: #D72638;
+  --destructive-foreground: #F0F4F8;
+  --border: #2A2A3A;
+  --input: #1A1A24;
+  --ring: #D72638;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0A0A0F;
+  --foreground: #F0F4F8;
+  --card: #12121A;
+  --card-foreground: #F0F4F8;
+  --popover: #12121A;
+  --popover-foreground: #F0F4F8;
+  --primary: #D72638;
+  --primary-foreground: #F0F4F8;
+  --secondary: #1A1A24;
+  --secondary-foreground: #F0F4F8;
+  --muted: #1A1A24;
+  --muted-foreground: #6B7280;
+  --accent: #F5A623;
+  --accent-foreground: #0A0A0F;
+  --destructive: #D72638;
+  --destructive-foreground: #F0F4F8;
+  --border: #2A2A3A;
+  --input: #1A1A24;
+  --ring: #D72638;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-mono: var(--font-ibm-mono), 'IBM Plex Mono', monospace;
+  --font-display: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-condensed: var(--font-barlow), 'Barlow Condensed', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-resq-red: var(--resq-red);
+  --color-resq-dark: var(--resq-dark);
+  --color-resq-amber: var(--resq-amber);
+  --color-resq-white: var(--resq-white);
+  --color-resq-green: var(--resq-green);
+  --color-resq-blue: var(--resq-blue);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* RESQ Custom Animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes camera-shake {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(1px, -1px); }
+  50% { transform: translate(-1px, 1px); }
+  75% { transform: translate(1px, 1px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes draw-ring {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(215, 38, 56, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-camera-shake {
+  animation: camera-shake 4s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out forwards;
+}
+
+.animate-scale-pop {
+  animation: scale-pop 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* Scanline effect */
+.scanline-effect::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.03);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--resq-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--resq-red);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e53e4f;
+}
